@@ -20,7 +20,7 @@ public class CustomThreadPoolGroupSum extends GroupSum {
         for (int i = 0; i < tasks.length; i++) {
             tasks[i] = new OneGroupSum(numberGroups[i]);
         }
-        ThreadPool threadPool = new ThreadPool(numberGroups.length);
+        ThreadPool threadPool = new ThreadPool(Runtime.getRuntime().availableProcessors());
         for (int i = 0; i < tasks.length; i++) {
             threadPool.execute(tasks[i]);
         }
